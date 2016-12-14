@@ -1,3 +1,13 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
@@ -15,7 +25,7 @@ var bio = {
     "welcomeMessage": "Greetings! Welcome to my Page!!",
     "skills": ["Active listening", " Adaptability", " Goal Setting", " Time Management"],
     "biopic": "images/image-placeholder.png"
-}
+};
 
 bio.display = function() {
 
@@ -31,13 +41,8 @@ bio.display = function() {
 
     $("#header").prepend(formattedRole);
     $("#header").prepend(formattedBio);
-    $("#topContacts").append(formattedMobile);
-    $("#topContacts").append(formattedEmail);
-    $("#topContacts").append(formattedGithub);
-    $("#topContacts").append(formattedTwitter);
-    $("#topContacts").append(formattedLocation);
-    $("#header").append(formattedMessage);
-    $("#header").append(formattedPic);
+    $("#topContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation);
+    $("#header").append(formattedMessage, formattedPic);
 
 
     var formattedSkillsStart = HTMLskillsStart;
@@ -50,8 +55,11 @@ bio.display = function() {
         });
     }
 
-}
-bio.display();
+    // Footer
+    $("#footerContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation);
+
+};
+
 
 
 // Work
@@ -69,15 +77,14 @@ var work = {
         "dates": "2015-2016",
         "description": "Welcome the customers as they step into the restaurant.Deal with clients in the most polite manner possible.Take record of orders made by customers both at the drive-through and counter, depending on where he/she is stationed.Convey orders to kitchen staff and see to their preparation.Monitor all orders placed by the client and also ensure these orders are delivered promptly to the customers.Package foods in bags and boxes along with kitchen staff.Help kitchen staff to cook food when such help is required.Help with up-selling in the restaurant when necessary.Pay attention to customers and help in responding to their inquiries, resolving their complaints, and noting their suggestions."
     }]
-}
+};
 
 work.display = function() {
 
-    var formattedWork = HTMLworkStart;
-    $("#workExperience").append(formattedWork);
-
     work.jobs.forEach(function(job) {
 
+        var formattedWork = HTMLworkStart;
+        $("#workExperience").append(formattedWork);
         var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
         var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
         var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
@@ -93,8 +100,8 @@ work.display = function() {
         $(".work-entry:last").append(formattedDescription);
     });
 
-}
-work.display();
+};
+
 
 //Projects
 var projects = {
@@ -104,7 +111,7 @@ var projects = {
         "description": "The project aims at saving energy by detecting the vehicle movement on highways and switching on the block of street light ahead of it and simultaneously switching off the trailing lights. The project requires sensors to detect the vehicle movements and switches on the lights ahead of it. As soon as the vehicle moves ahead the trailing lights automatically switches off. This can be used to save a lot of energy instead of using conventional system where the street lights are remained ON. Another mode of operation can be used where the lights are remained ON with 10% intensity and when the vehicle passes by the lights ahead of it are switched on with 100% intensity and the trailing lights revert back to 10% intensity. PWM is used for intensity control through microcontroller. The sensors sense the vehicle movements and send it to a 8051 microcontroller that initiates commands for switching the lights ON/OFF.",
         "images": ["images/circuit.jpg", "images/diagram.jpg"]
     }]
-}
+};
 
 projects.display = function() {
 
@@ -117,9 +124,7 @@ projects.display = function() {
         var formattedDates = HTMLprojectDates.replace("%data%", project.dates);
         var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
 
-        $(".project-entry:last").append(formattedTitle);
-        $(".project-entry:last").append(formattedDates);
-        $(".project-entry:last").append(formattedDescription);
+        $(".project-entry:last").append(formattedTitle, formattedDates, formattedDescription);
 
         if (project.images.length > 0) {
             project.images.forEach(function(image) {
@@ -129,8 +134,8 @@ projects.display = function() {
         }
     });
 
-}
-projects.display();
+};
+
 
 
 // Education
@@ -156,7 +161,7 @@ var education = {
         "dates": "2016-2017",
         "url": "https://in.udacity.com/"
     }]
-}
+};
 
 education.display = function() {
 
@@ -165,15 +170,13 @@ education.display = function() {
 
     education.schools.forEach(function(school) {
 
-        var formattedName = HTMLschoolName.replace("%data%", school.name);
+        var formattedName = HTMLschoolName.replace("%data%", school.name).replace("#", school.url);
         var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
         var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
         var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
         var formattedNameDegree = formattedName + formattedDegree;
 
-        $(".education-entry:last").append(formattedNameDegree);
-        $(".educatio-entry:last").append(formattedLocation);
-        $(".education-entry:last").append(formattedDates);
+        $(".education-entry:last").append(formattedNameDegree, formattedLocation, formattedDates);
 
         if (school.majors.length > 0) {
             school.majors.forEach(function(major) {
@@ -197,45 +200,19 @@ education.display = function() {
         var formattedUrl = HTMLonlineURL.replace("%data%", course.url);
         var formattedTitleSchool = formattedTitle + formattedSchool;
 
-        $(".education-entry:last").append(formattedTitleSchool);
-        $(".education-entry:last").append(formattedDates);
-        $(".education-entry:last").append(formattedUrl);
+        $(".education-entry:last").append(formattedTitleSchool, formattedDates, formattedUrl);
 
     });
 
-}
+};
+
+bio.display();
+
+work.display();
+
+projects.display();
+
 education.display();
-
-// Footer
-function displayContactInfo() {
-
-    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-
-    $("#footerContacts").append(formattedMobile);
-    $("#footerContacts").append(formattedEmail);
-    $("#footerContacts").append(formattedGithub);
-    $("#footerContacts").append(formattedTwitter);
-    $("#footerContacts").append(formattedLocation);
-
-}
-
-displayContactInfo();
-
-// Internationalize name button
-function inName(name) {
-    var name = name.trim().split(" ");
-    console.log(name);
-    name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
-    name[1] = name[1].toUpperCase();
-    name[2] = name[2].toUpperCase();
-    return name[0] + " " + name[1] + " " + name[2];
-}
-
-$("#main").append(internationalizeButton);
 
 // google map
 $("#mapDiv").append(googleMap);
@@ -273,12 +250,12 @@ chart.selectAll('rect')
     .append('rect')
     .attr('x', 0)
     .attr('y', function(d, i) {
-        return i * 68
+        return i * 68;
     })
     .attr('width', x)
     .attr('height', barHeight)
     .attr("fill", function(d) {
-        return color(d)
+        return color(d);
     });
 
 //data
