@@ -9,9 +9,10 @@ h3,
 h4,
 h5,
 h6 {
-  padding:0;
-  margin:0;
-  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
 }
 
 .clear-fix {
@@ -26,7 +27,6 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
   line-height: 48px;
   display: inline;
 }
@@ -34,15 +34,14 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
   line-height: 29px;
   padding: 10px;
 }
 
 h3 {
   font-style: italic;
-  font-size: 20px;
-  color: #000;
+  font-size: 25px;
+  color: #c71585;
   line-height: 22px;
 }
 
@@ -57,14 +56,12 @@ h2,
 h3,
 h4,
 h5 {
-  padding:10px 5%;
-
+  padding: 10px 5%;
 }
-
 
 .date-text {
   font-style: italic;
-  font-size: 14px;
+  font-size: 22px;
   color: #999;
   line-height: 16px;
   float: left;
@@ -72,44 +69,53 @@ h5 {
 
 .location-text {
   font-style: italic;
-  font-size: 14px;
+  font-size: 20px;
   color: #999;
   line-height: 16px;
   float: right;
-
 }
 
 p {
-  font-size: 14px;
-  color: #333;
-  line-height: 21px;
+  font-size: 20px;
+  color: #fff;
+  line-height: 1.5em;
+  padding: 10px 0;
 }
 
 a {
-  color: #1199c3;
+  color: #00ffbf;
   text-decoration: none;
   margin-top: 10px;
   display: block;
+  font-size: 25px;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .welcome-message {
   font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
+  font-size: 45px;
+  color: #ffff00;
   line-height: 28px;
+  text-shadow: 3px 3px 5px #008000;
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #ff6347;
   display: none;
+  padding: 30px;
+  font-size: 30px;
 }
 
 .orange {
-  background-color: #f5ae23;
+  background-color: #000;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #ff6347;
+  font-weight: bold;
 }
 
 .white-text {
@@ -118,18 +124,18 @@ a {
 }
 
 .gray {
-  background-color: #f3f3f3;
+  background-color: #000;
   padding-bottom: 10px;
-  clear:both;
+  clear: both;
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: #000;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #000;
 }
 
 .flex-box {
@@ -138,14 +144,16 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10px;
+  padding-top: 30px;
 }
 
 .flex-column {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  padding: 10px;
+  padding: 20px;
+  width: 20%;
+  float: left;
 }
 
 .center-content {
@@ -158,9 +166,13 @@ ul {
 
 .biopic {
   float: left;
-  padding: 10px;
+  padding: 2px;
   width: 200px;
   display: none;
+  border-radius: 45%;
+  border: 1px solid #c71585;
+  background-color: #ff6347;
+  margin-right: 50px;
 }
 
 img {
@@ -169,6 +181,7 @@ img {
 
 span {
   padding: 5px;
+  color: #faebd7;
 }
 
 #lets-connect {
@@ -179,7 +192,7 @@ span {
 
 @media only screen and (max-width: 1024px) {
   #lets-connect {
-    margin-top: 5%;
+    margin-top: 10%;
   }
 }
 
@@ -193,11 +206,17 @@ span {
   #lets-connect {
     margin-top: 10%;
   }
+
   .biopic {
     width: 150px;
   }
+
   .welcome-message {
     display: none;
+  }
+
+  #skills-h3 {
+    display: block;
   }
 }
 
@@ -205,12 +224,18 @@ span {
   display: block;
   height: 100%;
   margin: 0 5%;
+  border: 2px solid #c71585;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: #ff6347;
 }
 
 #mapDiv {
   height: 400px;
   width: 100%;
-  padding-bottom: 5%;
+  padding-bottom: 7%;
+  color: #c71585;
+  background-color: #000;
 }
 
 @media only screen and (min-width: 750px) {
@@ -218,4 +243,85 @@ span {
   .biopic {
     display: block;
   }
+}
+
+/*chart disappear*/
+@media only screen and (max-width: 1053px) {
+  #chart {
+    display: none;
+  }
+
+  .flex-column {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 503px) {
+  .flex-column {
+    width: 100%;
+  }
+}
+
+/*my css styles*/
+html,body {
+  background: url('https://images.pexels.com/photos/219025/pexels-photo-219025.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb') no-repeat center center fixed;
+  background-size: cover;
+}
+
+#main {
+  opacity: 0.7;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#main:hover {
+  opacity: 0.9;
+}
+
+/*h1 & h2*/
+#name {
+  color: #ff6347;
+  text-shadow: 3px 3px #ffa500;
+  padding-right: 10px;
+  font-size: 50px;
+}
+
+.deep-pink {
+  color: #ff1493;
+}
+
+/*major*/
+em {
+  color: #fff;
+  font-size: 20px;
+}
+
+/*fontawesome*/
+.fa {
+  color: #ff00ff;
+}
+
+/*barchart*/
+.flex-item {
+  padding-bottom: 40px;
+}
+
+svg {
+  margin-top: 25px;
+  width: 50%;
+  float: left;
+}
+
+rect {
+  stroke: #fff;
+}
+
+rect:hover {
+  color: #ffd700;
+}
+
+.score {
+  color: #000;
+  font-weight: bold;
+  font-size: 25px;
 }
